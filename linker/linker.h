@@ -173,8 +173,6 @@ struct soinfo
 extern soinfo libdl_info;
 
 
-#include <asm/elf.h>
-
 #if defined(ANDROID_MIPS_LINKER)
 
 // These aren't defined in <arch-arm/mips/elf.h>.

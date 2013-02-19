@@ -177,6 +177,11 @@ ifeq ($(TARGET_ARCH),arm)
   endif
 
   libm_common_includes = $(LOCAL_PATH)/arm
+
+else
+  libm_common_src_files += \
+	src/s_cos.c \
+	src/s_sin.c
 endif
 
 ifeq ($(TARGET_OS)-$(TARGET_ARCH),linux-x86)
@@ -215,8 +220,6 @@ LOCAL_ARM_MODE := arm
 LOCAL_C_INCLUDES += $(libm_common_includes)
 LOCAL_CFLAGS := $(libm_common_cflags)
 
-LOCAL_CFLAGS:= $(libm_common_cflags)
-
 LOCAL_MODULE:= libm
 LOCAL_ADDITIONAL_DEPENDENCIES := $(LOCAL_PATH)/Android.mk
 
@@ -236,8 +239,6 @@ LOCAL_ARM_MODE := arm
 
 LOCAL_C_INCLUDES += $(libm_common_includes)
 LOCAL_CFLAGS := $(libm_common_cflags)
-
-LOCAL_CFLAGS:= $(libm_common_cflags)
 
 LOCAL_MODULE:= libm
 LOCAL_ADDITIONAL_DEPENDENCIES := $(LOCAL_PATH)/Android.mk
